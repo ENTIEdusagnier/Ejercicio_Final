@@ -50,7 +50,7 @@ do
 		CONTADOR=0
 		for num in $NUM1 $NUM2 $NUM3 $NUM4 $NUM5 $NUM6; do
 
-			if [[ $num -gt 0 && $num -le 9 ]];then
+			if [[ $num -gt -1 && $num -le 999999 && $num =~ ^[0-9]+ ]];then
 				# echo "$num OK!" #Verificacion de funcinamiento
 				((CONTADOR++))
 			else
@@ -73,7 +73,7 @@ do
 done
 
 for nums in $NUM1 $NUM2 $NUM3 $NUM4 $NUM5 $NUM6; do
-echo "$nums" >> ./archivo.txt
+	echo "$nums" >> ./archivo.txt
 done
 
 sort -nr archivo.txt | head -n 3 > ./numero_mayor.txt
