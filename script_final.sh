@@ -69,3 +69,9 @@ do
 	fi
 
 done
+
+for nums in $NUM1 $NUM2 $NUM3 $NUM4 $NUM5 $NUM6; do
+echo "$nums" >> /home/enti/Ejercicio_Final/archivo.txt
+done
+
+
