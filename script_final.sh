@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /home/enti/Ejercicio_Final/
+
 echo "------------------"
 echo "------------------"
 echo "    Bienvenido    "
@@ -52,18 +54,18 @@ do
 				# echo "$num OK!" #Verificacion de funcinamiento
 				((CONTADOR++))
 			else
-				echo "$num KO!"
+				echo -e "\033[0;31m$num KO!\033[0m"
 			fi
 		done
 		
 		
 		if [ $CONTADOR != 6 ];then
 			CORRECTO=0
-			echo "No has introducido bien los datos"
+			echo -e "\033[0;31mNo has introducido bien los datos\033[0m"
 			echo "" #Me molesta que no haya espacio.
 		else
 			# echo "$NUM1    $NUM2    $NUM3    $NUM4    $NUM5    $NUM6" #Verificacion de funcionamiento
-			echo "Num correctamente introduciodos"
+			echo -e "\033[0;33mNum correctamente introduciodos\033[0m"
 			CORRECTO=1
 		fi
 	fi
@@ -71,7 +73,15 @@ do
 done
 
 for nums in $NUM1 $NUM2 $NUM3 $NUM4 $NUM5 $NUM6; do
-echo "$nums" >> /home/enti/Ejercicio_Final/archivo.txt
+echo "$nums" >> ./archivo.txt
 done
 
+sort -nr archivo.txt | head -n 3 > ./numero_mayor.txt
+
+cat numero_mayor.txt
+
+BIG=`cat numero_mayor.txt | head -n 1`
+echo -e "El numero mas grande era el: \033[0;34m$BIG"
+
+rm archivo.txt
 
